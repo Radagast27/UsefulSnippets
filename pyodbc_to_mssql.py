@@ -1,8 +1,8 @@
 import pyodbc
 
-cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost;DATABASE=WideWorldImporters;UID=UserID;PWD=YourPassword')
+cnxn = pyodbc.connect('driver={SQL Server};server=.;database=CLARO;trusted_connection=true')
 cursor = cnxn.cursor()
-cursor.execute("SELECT TOP (100) Comments, count(*) FROM WideWorldImporters.Sales.Orders GROUP BY Comments")
+cursor.execute('SELECT * FROM [CLARO].[dbo].[Fielding];')
 row = cursor.fetchone() 
 while row: 
     print(row[0] + ': ' + str(row[1]))
